@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript">
+    document.addEventListener("deviceready", function() {
+      var div = document.getElementById("map_canvas");
+
+      // Create a Google Maps native view under the map_canvas div.
+      var map = plugin.google.maps.Map.getMap(div);
+
+      // If you click the button, do something...
+      var button = document.getElementById("button");
+      button.addEventListener("click", function() {
+
+        // Move to the position with animation
+        map.animateCamera({
+          target: {lat: 37.422359, lng: -122.084344},
+          zoom: 17,
+          tilt: 60,
+          bearing: 140,
+          duration: 5000
+        });
+
+        // Add a maker
+        var marker = map.addMarker({
+          position: {lat: 37.422359, lng: -122.084344},
+          title: "Welecome to \n" +
+                 "Cordova GoogleMaps plugin for iOS and Android",
+          snippet: "This plugin is awesome!",
+          animation: plugin.google.maps.Animation.BOUNCE
+        });
+
+        // Show the info window
+        marker.showInfoWindow();
+
+      });
+
+    }, false);
+
+    </script>
+    <style type="text/css">
+    #map_canvas { /* Must bigger size than 100x100 pixels */
+      width: 100%;
+      height: 500px;
+    }
+    button {
+      padding: .5em;
+      margin: .5em;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Hello, World!</h1>
+    <div id="map_canvas">
+    </div>
+     <div id="text_canvas">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae est bibendum nisi iaculis sagittis pulvinar eget mi. Cras quis pulvinar dolor. Suspendisse imperdiet eu dui quis porttitor. Curabitur porta varius lacus, sit amet vestibulum nibh dictum sit amet. Sed eleifend porta aliquet. Praesent placerat purus et massa sollicitudin, at fringilla metus eleifend. Praesent elementum maximus metus vel laoreet. Nullam congue interdum fermentum. Sed porttitor nulla libero, id faucibus ex dictum eu.
+
+        Curabitur non dolor dictum justo egestas posuere. Aliquam volutpat elit eget varius pulvinar. Etiam rhoncus facilisis nunc nec venenatis. Morbi vehicula ex eu accumsan facilisis. Cras facilisis pellentesque feugiat. Aliquam felis felis, volutpat interdum felis in, venenatis fermentum orci. Sed ut vestibulum est, sit amet mattis ligula.
+
+        Quisque et tincidunt ante, sit amet elementum lectus. Sed rutrum tortor neque, vel ornare ante varius ac. Phasellus vestibulum commodo ligula. Aliquam vitae molestie tortor. Duis vel consequat arcu, eget condimentum orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut pellentesque commodo libero, vitae semper quam tincidunt sed. Praesent sed orci pretium, tristique nibh id, pretium nibh. Nam accumsan at sapien sodales sollicitudin.
+
+        Praesent nec orci in turpis scelerisque blandit. Phasellus gravida orci lorem. Integer mauris arcu, faucibus vel neque a, fringilla ullamcorper sapien. Praesent quis placerat neque. Duis ornare, enim et rutrum lacinia, elit erat hendrerit nunc, sed tincidunt est sem at urna. Etiam vel arcu nec justo accumsan facilisis. Duis dignissim erat id lorem pellentesque vestibulum. Nam et dolor sed eros gravida blandit at venenatis nisl. Vivamus accumsan id lorem a luctus. Suspendisse eget pharetra tortor. Sed erat ligula, eleifend ut ante ac, aliquam vulputate ante. In ac maximus enim. Sed mauris justo, dignissim in orci sodales, auctor auctor ligula. Pellentesque eget ante bibendum purus dapibus viverra at quis ex.
+
+        Pellentesque vel ex et magna dapibus auctor eget in diam. Cras ac varius nulla. Sed commodo nisl eget est tempus, aliquet faucibus odio efficitur. Donec id ex dignissim massa semper facilisis suscipit sit amet elit. Etiam non ligula magna. Sed in nunc quam. Donec eu sem mattis, mattis dui eu, sodales nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas, tortor nec dignissim accumsan, nibh lacus porttitor massa, in sollicitudin augue mauris sit amet tortor.
+    </div>
+  </body>
+</html>
